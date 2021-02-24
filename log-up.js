@@ -4,6 +4,7 @@ const {
   isValidPassword,
   isRegisteredUser,
   passwordMatches,
+  user1,
 } = require("./main.js");
 
 // The code immediately above grabs the functions you'll
@@ -59,4 +60,50 @@ const {
 // from the first part of this assignment.
 
 // Being sure to do all that's outlined above, write
-// your code below!
+// your code below
+
+const userInput = getInput();
+
+function loggedIn(name, password) {
+  if (name === user1 && password === password1 ){
+    return console.log('logged in');
+  }
+  if (name === user2 && password === password2 ){
+    return console.log('logged in');
+  }
+  if (name === user3 && password === password3 ){
+    return console.log('logged in');
+  }
+}
+
+function incorrect(name, password){
+  if(name === user1 && password !== password1 ){
+    return console.log('password is incorrect');
+  }
+  if(name === user2 && password !== password2 ){
+    return console.log('password is incorrect');
+  }
+  if(name === user3 && password !== password3 ){
+    return console.log('password is incorrect');
+  }
+}
+
+function valid(name, password) {
+  if (name === isValidEmail() && password === isValidPassword) {
+    return console.log('you are signed up')
+  }
+}
+
+function invalidEmail(name) {
+  if (name !== isValidEmail()) {
+    return console.log('Invalid email. Please create a valid one.')
+  }
+}
+
+function invalidPassword(password) {
+  if (password !== isValidPassword) {
+    return console.log('Invalid password. Please create a valid one.')
+  }
+}
+
+
