@@ -4,7 +4,7 @@ const {
   isValidPassword,
   isRegisteredUser,
   passwordMatches,
-  user1,
+  
 } = require("./main.js");
 
 // The code immediately above grabs the functions you'll
@@ -62,48 +62,25 @@ const {
 // Being sure to do all that's outlined above, write
 // your code below
 
-const userInput = getInput();
+const email = getInput(1);
+const password = getInput(2);
 
-function loggedIn(name, password) {
-  if (name === user1 && password === password1 ){
-    return console.log('logged in');
-  }
-  if (name === user2 && password === password2 ){
-    return console.log('logged in');
-  }
-  if (name === user3 && password === password3 ){
-    return console.log('logged in');
-  }
+if (isRegisteredUser(email) && passwordMatches(email, password)) {
+  console.log('You are logged in.')
 }
 
-function incorrect(name, password){
-  if(name === user1 && password !== password1 ){
-    return console.log('password is incorrect');
-  }
-  if(name === user2 && password !== password2 ){
-    return console.log('password is incorrect');
-  }
-  if(name === user3 && password !== password3 ){
-    return console.log('password is incorrect');
-  }
+if (isRegisteredUser(email) && !passwordMatches(email, password)) {
+  console.log('That is an incorrect password for user.')
 }
 
-function valid(name, password) {
-  if (name === isValidEmail() && password === isValidPassword) {
-    return console.log('you are signed up')
-  }
+if (!isRegisteredUser(email) && isValidEmail(email) && isValidPassword(password)) {
+  console.log('You have been registered. Welcome!')
 }
 
-function invalidEmail(name) {
-  if (name !== isValidEmail()) {
-    return console.log('Invalid email. Please create a valid one.')
-  }
+if (!isRegisteredUser(email) && !isValidEmail(email)) {
+  console.log('That is not a valid email. All emails must end @codeimmersives.com.')
 }
 
-function invalidPassword(password) {
-  if (password !== isValidPassword) {
-    return console.log('Invalid password. Please create a valid one.')
-  }
+if (!isRegisteredUser(email) && !isValidPassword(password)) {
+  console.log('That is not a valid password. All passwords must be at least 8 characters and have an upper and lowercased letter.')
 }
-
-
